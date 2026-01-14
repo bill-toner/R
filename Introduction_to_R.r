@@ -43,3 +43,117 @@ help(t.test)
 ?t.test
 
 # Vectors ----
+a <- c (1, 2, 3, 4)
+b <- c("red", "white", "blue")
+c <- c(T, F, T)
+is.numeric(5)
+is.logical(c(T, F))
+# coercion
+x <- NA
+x == NA
+is.na(x)
+as.numeric("42")
+as.character(TRUE)
+as.logical(1)
+as.logical(54)
+
+# Indexing Vectors ---- (R is 1-indexed, not 0)
+x <- c(0, 1, 1, 2)
+x[2]
+x[1:2]
+x[c(1, 4)]
+x[-1]
+x[c(-1, -4)]
+
+logical_index = c(F, T, F, T)
+x[logical_index]
+x[x > 0]
+x > 0
+which(x > 0)
+
+x <- c(0, 1, 1, 2)
+x[(x > 0) & (x %% 2 == 1)]
+
+# Functions on Vectors ----
+2 * x
+x <- c(0, 1, 1, 2)
+y <- c(9, 6, 7, 3)
+x + y
+x > y
+x <- c(0, 1)
+y <- 3 : 8
+x + y
+
+x <- c(0, 1, 1, 2)
+length(x)
+max(x)
+min(x)
+sum(x)
+prod(x)
+
+v <- c(1, 2, 3, 4, NA, 6)
+sum(v)
+sum(v, na.rm = T)
+x <- c(0, 1, 1, 2)
+any(x > 0)
+all(x > 0)
+
+# Modifying Vectors ----
+z <- c("white", "yellow", "red")
+z[2] <- "green"
+z
+z <- c("white", "yellow", "red")
+z[-2] = "green"
+z
+
+z <- c("white", "yellow", "red")
+z[4] <- "teal"
+z
+
+z <- c("white", "yellow", "red")
+z[6] <- "lime"
+z
+
+z[4:5] <- "magenta" # or z[4:5] <- c("magenta", "magenta")
+z
+
+# Matrices and arrays ----
+v <- 1:6
+m <- matrix(v, nrow = 2, ncol = 3)
+m
+
+m <- matrix(v, nrow = 2, ncol = 3, byrow = T)
+m
+
+v1 <- c(1, 3, 5)
+v2 <- c(2, 4, 6)
+rbind(v1, v2)
+cbind(v1, v2)
+
+(m <- rbind(v1, v2))
+m["v2", ]
+
+m
+m[2, 3]
+m[1, ]
+m[1:2, 2:3]
+m[1:2, c(1, 3)]
+m[m > 1]
+ 
+rownames(m)
+colnames(m)
+colnames(m) <- c("a", "b", "c")
+m
+
+ncol(m)
+nrow(m)
+dim(m)
+
+m <- rbind(1:2, 2:3)
+m
+n <- rbind(c(2, 2, 2), c(1, 1, 1))
+n
+m %*% n
+
+a <- array(1:24, c(2, 3, 4))
+a
