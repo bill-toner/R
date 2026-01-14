@@ -157,3 +157,49 @@ m %*% n
 
 a <- array(1:24, c(2, 3, 4))
 a
+
+
+# Lists ----
+title <- "OP list"
+a <- c(12, 23, 5, 0, 9)
+b <- matrix(1:10, nrow = 5)
+c <- c("Some text", "Some more text")
+l <- list(title = title, numbers = a, b, c)
+l[[4]]
+l$numbers
+
+# Data Frames ----
+data(iris)
+head(iris)
+head(iris, n = 3)
+iris[,1]
+iris$Sepal.Length
+str(iris)
+names(iris)
+names(iris)[1:4] <- c("SLength", "SWidth", "PLength", "PWidth")
+head(iris)
+teamID <- c(1, 2, 3, 4, 5)
+teamName <- c("Greece", "Romania", "Portugal", "Brazil", "England")
+fifaRanking <- c(15, 29, 14, 11, 10)
+qualified <- c(T, F, T, T, T)
+worldCup2014 <- data.frame(teamID, teamName, fifaRanking, qualified, stringsAsFactors = FALSE)
+worldCup2014
+newWorldCup2014 <- worldCup2014[order(worldCup2014$fifaRanking, worldCup2014$teamName), ]
+newWorldCup2014
+worldCup2014[6,] <- c(6, "Belgium", 12, T)
+worldCup2014 <- rbind(worldCup2014, c(7, "Scotland", 22, F))
+worldCup2014
+worldCup2014$wonWCBefore <- c(F, F, F, T, NA, F, F)
+worldCup2014
+worldCup2014[complete.cases(worldCup2014), ]
+fix(worldCup2014)
+worldCup2014[worldCup2014$teamName == "England", "wonWCBefore"] = T
+worldCup2014
+data(iris)
+iris$Species <- NULL
+head(iris)
+iris <- iris[-7,]
+iris
+data(iris)
+subset(iris, Sepal.Length > (2.5 * Sepal.Width), 
+  select = c("Sepal.Length", "Sepal.Width", "Species"))
