@@ -203,3 +203,19 @@ iris
 data(iris)
 subset(iris, Sepal.Length > (2.5 * Sepal.Width), 
   select = c("Sepal.Length", "Sepal.Width", "Species"))
+
+# Sampling data frames
+v <- 1:100
+sample(v, 5)
+sample(v, 10, replace = T)
+ 
+data(iris)
+iris_size <- nrow(iris)
+train_size <- ceiling(iris_size * 0.85)
+iris_sampling_vector <- sample(seq_len(train_size), size = train_size)
+iris_training <- iris[iris_sampling_vector, ]
+iris_test <- iris[-iris_sampling_vector, ]
+nrow(iris_training)
+nrow(iris_test)
+
+# Factors ----
